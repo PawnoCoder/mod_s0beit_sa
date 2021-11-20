@@ -130,6 +130,9 @@ static void cheat_main_vehicle ( double time_diff )
 	struct vehicle_info *info = vehicle_info_get( VEHICLE_SELF, 0 );
 	if ( info == nullptr )
 		return;
+
+	if (info->base.model_alt_id > 611)
+		return;
 	
 	// copy vehicle coords to cheat_state storage
 	vect3_copy( &info->base.matrix[4 * 3], cheat_state->vehicle.coords );
